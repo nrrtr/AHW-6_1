@@ -32,7 +32,6 @@ public class CardMoneyTransferTest {
             var transferPage = dashboardPage.topUpFirstCard();
             transferPage.transferBalance(diffBetweenBalances, DataHelper.getSecondCardNumber());
         }
-
     }
 
     @Test
