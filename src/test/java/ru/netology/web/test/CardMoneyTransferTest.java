@@ -68,12 +68,7 @@ public class CardMoneyTransferTest {
         var transferPage = dashboardPage.topUpFirstCard();
         int amountToTransfer = secondCardBalance * 2;
         transferPage.transferBalance(amountToTransfer, DataHelper.getSecondCardNumber());
-        var expectedFirstRemainder = firstCardBalance + amountToTransfer;
-        var expectedSecondRemainder = secondCardBalance - amountToTransfer;
-        var actualFirstRemainder = dashboardPage.getCardBalance(DataHelper.getFirstCardNumber().getCardNumber());
-        var actualSecondRemainder = dashboardPage.getCardBalance(DataHelper.getSecondCardNumber().getCardNumber());
-        Assertions.assertEquals(expectedFirstRemainder, actualFirstRemainder);
-        Assertions.assertEquals(expectedSecondRemainder, actualSecondRemainder);
+        transferPage.transferBalanceError();
     }
 
     @Test
@@ -110,12 +105,7 @@ public class CardMoneyTransferTest {
         var transferPage = dashboardPage.topUpSecondCard();
         int amountToTransfer = firstCardBalance * 2;
         transferPage.transferBalance(amountToTransfer, DataHelper.getFirstCardNumber());
-        var expectedFirstRemainder = firstCardBalance - amountToTransfer;
-        var expectedSecondRemainder = secondCardBalance + amountToTransfer;
-        var actualFirstRemainder = dashboardPage.getCardBalance(DataHelper.getFirstCardNumber().getCardNumber());
-        var actualSecondRemainder = dashboardPage.getCardBalance(DataHelper.getSecondCardNumber().getCardNumber());
-        Assertions.assertEquals(expectedFirstRemainder, actualFirstRemainder);
-        Assertions.assertEquals(expectedSecondRemainder, actualSecondRemainder);
+        transferPage.transferBalanceError();
     }
 
     @Test
